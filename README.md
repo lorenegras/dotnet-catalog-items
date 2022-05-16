@@ -6,11 +6,16 @@ Il est développé avec ASP.NET en C#.
 
 ## Base de données
 La base de données est une base de données document avec MongoDB.
-Il est géré avec l'ORM de .NET, Entity Framework. 
+Elle est gérée avec l'ORM de .NET, Entity Framework. 
 
 ## Architecture de code
-Plusieurs composantes ont été créées : 
-- Les DTOS pour gérer les formats transmits
-- Le controller pour gèrer le CRUD d'items
-- Un repository d'items pour gérer la base de données
-- Une entité pour gérer le model d'un item dans la base de données
+J'ai utilisé une architecture n-tiers :
+- Les controllers pour gérer les routes et la sérialisation.
+- Un repository d'items pour gérer l'utilisation de l'ORM (DAL)
+- Une entité item pour pouvoir mettre en place une approche code-first
+- Des DTOS pour faciliter la manipulation de données dans l'ensemble du CRUD
+- Pour gérer la logique métier, il serait bon de rajouter une couche BLL
+
+## Lancement du projet
+Dans le dossier du projet Play.Catalog.Service, lancer la commande :
+`dotnet run`
